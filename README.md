@@ -75,7 +75,10 @@ https://github.com/storybookjs/storybook/issues/15336
 ### Install test framework
 
 ```bash
-npm install --save-dev jest @testing-library/react @testing-library/jest-dom jest-environment-jsdom
+npm install --save-dev jest \
+@testing-library/react \
+@testing-library/jest-dom \
+jest-environment-jsdom
 ```
 
 Add `jest.setup.js` file and `jest.config.js` at root directry. Next, add `"test": "jest"` on package.json file.
@@ -111,6 +114,33 @@ Use Format, following command.
 npm run format
 ```
 
+### Install React Hook Form
+
+```bash
+npm install react-hook-form
+```
+
+### Install SWR
+
+```bash
+npm install swr
+```
+
+### Install React Content Loader
+
+```bash
+npm install react-content-loader
+npm install --save-dev @types/react-content-loader
+```
+
+### Install Material Icons(and emotion)
+
+```bash
+npm install @mui/material \
+@mui/icons-material \
+@emotion/react \
+@emotion/styled
+```
 
 ---
 
