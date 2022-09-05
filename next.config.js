@@ -16,6 +16,19 @@ const nextConfig = {
     }
     return compilerConfig
   })(),
+
+  // APIリクエストプロキシ
+  // CORSでのCookie送信を回避するためにNext.jsのRerites機能を使用する
+  async rewrites() {
+    return [
+      {
+        // ex. /api/proxy
+        source: `${process.env.NEXT_PUBLIC_API_BASE_PATH}/:match*`,
+        // ex. http://localhost:8000
+        destination: `${process.env.API_BASE_URL}/:match*`,
+      }
+    ]
+  }
 }
 
 module.exports = nextConfig
