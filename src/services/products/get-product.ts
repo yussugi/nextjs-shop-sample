@@ -16,7 +16,7 @@ export type GetProductParams = {
  */
 const getProduct = async (
   context: ApiContext,
-  { id }: GetProductParams
+  { id }: GetProductParams,
 ): Promise<Product> => {
   return await fetcher(
     `${context.apiRootUrl.replace(/\/$/g, "")}/products/${id}`,
@@ -26,7 +26,7 @@ const getProduct = async (
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-    }
+    },
   );
 };
 

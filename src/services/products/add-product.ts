@@ -16,7 +16,7 @@ export type AddProductsParams = {
  */
 const addProduct = async (
   context: ApiContext,
-  { product }: AddProductsParams
+  { product }: AddProductsParams,
 ): Promise<Product> => {
   return await fetcher(`${context.apiRootUrl.replace(/\/$/g, "")}/products`, {
     method: "POST",

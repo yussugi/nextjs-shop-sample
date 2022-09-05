@@ -16,7 +16,7 @@ export type PurchaseParams = {
  */
 const purchase = async (
   context: ApiContext,
-  params: PurchaseParams
+  params: PurchaseParams,
 ): Promise<{ message: string }> => {
   return await fetcher(`${context.apiRootUrl.replace(/\/$/g, "")}/purchases`, {
     method: "POST",

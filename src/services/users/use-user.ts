@@ -37,10 +37,10 @@ export type UseUser = {
  */
 const useUser = (
   context: ApiContext,
-  { id, initial }: UseUserProps
+  { id, initial }: UseUserProps,
 ): UseUser => {
   const { data, error } = useSWR<User>(
-    `${context.apiRootUrl.replace(/\/$/g, "")}/users/${id}`
+    `${context.apiRootUrl.replace(/\/$/g, "")}/users/${id}`,
   );
 
   return {

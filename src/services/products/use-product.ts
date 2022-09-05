@@ -38,10 +38,10 @@ export type UseProduct = {
  */
 const useProduct = (
   context: ApiContext,
-  { id, initial }: UseProductProps
+  { id, initial }: UseProductProps,
 ): UseProduct => {
   const { data, error } = useSWR<Product>(
-    `${context.apiRootUrl.replace(/\/$/g, "")}/products/${id}`
+    `${context.apiRootUrl.replace(/\/$/g, "")}/products/${id}`,
   );
 
   return {

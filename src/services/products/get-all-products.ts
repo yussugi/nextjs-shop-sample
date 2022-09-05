@@ -55,7 +55,7 @@ const getAllProducts = async (
     limit,
     sort = "id",
     order = "desc",
-  }: GetAllProductsParams = {}
+  }: GetAllProductsParams = {},
 ): Promise<Product[]> => {
   const path = `${context.apiRootUrl.replace(/\/$/g, "")}/products`;
   const params = new URLSearchParams();

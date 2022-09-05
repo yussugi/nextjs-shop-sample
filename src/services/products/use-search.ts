@@ -65,7 +65,7 @@ const useSearch = (
     initial,
     sort = "id",
     order = "desc",
-  }: UseSearchProps = {}
+  }: UseSearchProps = {},
 ): UseSearch => {
   const path = `${context.apiRootUrl.replace(/\/$/g, "")}/products`;
   const params = new URLSearchParams();
@@ -78,7 +78,7 @@ const useSearch = (
   order && params.append("_order", order);
   const query = params.toString();
   const { data, error } = useSWR<Product[]>(
-    query.length > 0 ? `${path}?${query}` : path
+    query.length > 0 ? `${path}?${query}` : path,
   );
 
   return {

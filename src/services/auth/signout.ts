@@ -15,7 +15,7 @@ const signout = async (context: ApiContext): Promise<{ message: string }> => {
         Accept: "application/json",
         "Context-Type": "application/json",
       },
-    }
+    },
   );
 };
 

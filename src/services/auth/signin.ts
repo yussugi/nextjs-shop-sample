@@ -25,7 +25,7 @@ export type SigninParams = {
  */
 const signin = async (
   context: ApiContext,
-  params: SigninParams
+  params: SigninParams,
 ): Promise<User> => {
   return await fetcher(
     `${context.apiRootUrl.replace(/\/$/g, "")}/auth/signin`,
@@ -36,7 +36,7 @@ const signin = async (
         "Context-Type": "application/json",
       },
       body: JSON.stringify(params),
-    }
+    },
   );
 };
 

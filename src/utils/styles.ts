@@ -13,11 +13,11 @@ type LetterSpacingThemeKeys = keyof typeof theme.letterSpacings;
 type LineHeightThemeKeys = keyof typeof theme.lineHeights;
 
 // 各Themeのキーの型
-export type Space = SpaceThemeKeys | (string & []);
-export type Color = ColorThemeKeys | (string & []);
-export type FontSize = FontSizeThemeKeys | (string & []);
-export type LetterSpacing = LetterSpacingThemeKeys | (string & []);
-export type LineHeight = LineHeightThemeKeys | (string & []);
+export type Space = SpaceThemeKeys | (string & {});
+export type Color = ColorThemeKeys | (string & {});
+export type FontSize = FontSizeThemeKeys | (string & {});
+export type LetterSpacing = LetterSpacingThemeKeys | (string & {});
+export type LineHeight = LineHeightThemeKeys | (string & {});
 
 // ブレイクポイント
 const BREAKPOINTS: { [key: string]: string } = {
@@ -32,12 +32,12 @@ const BREAKPOINTS: { [key: string]: string } = {
  * @param propKey CSSプロパティ
  * @param prop Responsive型
  * @param theme AppTheme
- * @returns CSSプロパティとその値(ex. background-color: white;)
+ * @returns CSSプロパティとその値 (ex. background-color: white;)
  */
 export function toPropValue<T>(
   propKey: string,
   prop?: Responsive<T>,
-  theme?: AppTheme
+  theme?: AppTheme,
 ) {
   if (prop === undefined) return undefined;
 
@@ -50,8 +50,8 @@ export function toPropValue<T>(
           `${propKey}: ${toThemeValueIfNeeded(
             propKey,
             prop[responsiveKey],
-            theme
-          )}`
+            theme,
+          )};`,
         );
       } else if (
         responsiveKey === "sm" ||
@@ -59,19 +59,20 @@ export function toPropValue<T>(
         responsiveKey === "lg" ||
         responsiveKey === "xl"
       ) {
-        //メディアクエリでのスタイル
+        // メディアクエリでのスタイル
         const breakpoint = BREAKPOINTS[responsiveKey];
         const style = `${propKey}: ${toThemeValueIfNeeded(
           propKey,
           prop[responsiveKey],
-          theme
-        )}`;
+          theme,
+        )};`;
         result.push(`@media screen and (min-width: ${breakpoint}) {${style}}`);
       }
     }
     return result.join("\n");
   }
-  return `${propKey}: ${toThemeValueIfNeeded(propKey, prop, theme)}`;
+
+  return `${propKey}: ${toThemeValueIfNeeded(propKey, prop, theme)};`;
 }
 
 const SPACE_KEYS = new Set([
@@ -160,14 +161,14 @@ function isColorThemeKeys(prop: any, theme: AppTheme): prop is ColorThemeKeys {
 
 function isFontSizeThemeKeys(
   prop: any,
-  theme: AppTheme
+  theme: AppTheme,
 ): prop is FontSizeThemeKeys {
   return Object.keys(theme.fontSizes).filter((key) => key == prop).length > 0;
 }
 
 function isLetterSpacingThemeKeys(
   prop: any,
-  theme: AppTheme
+  theme: AppTheme,
 ): prop is LetterSpacingThemeKeys {
   return (
     Object.keys(theme.letterSpacings).filter((key) => key == prop).length > 0
@@ -176,7 +177,7 @@ function isLetterSpacingThemeKeys(
 
 function isLineHeightThemeKeys(
   prop: any,
-  theme: AppTheme
+  theme: AppTheme,
 ): prop is LineHeightThemeKeys {
   return Object.keys(theme.lineHeights).filter((key) => key == prop).length > 0;
 }
