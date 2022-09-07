@@ -12,7 +12,7 @@ const DropdownRoot = styled.div`
 const DropdownControl = styled.div<{ hasError?: boolean }>`
   position: relative;
   overflow: hidden;
-  background-color: #fffff;
+  background-color: #ffffff;
   border: ${({ theme, hasError }) =>
     hasError
       ? `1px solid ${theme.colors.danger}`
@@ -31,20 +31,20 @@ const DropdownValue = styled.div`
 // ドロップダウンプレースホルダー
 const DropdownPlaceholder = styled.div`
   color: #757575;
-  font-size: ${({ theme }) => theme.fontSize[1]};
+  font-size: ${({ theme }) => theme.fontSizes[1]};
   min-height: 20px;
   line-height: 20px;
 `;
 
 // ドロップダウンの矢印の外観
-const DropdownArrow = styled.div<{ isOpen: boolean }>`
+const DropdownArrow = styled.div<{ isOpen?: boolean }>`
   border-color: ${({ isOpen }) =>
     isOpen
       ? "transparent transparent #222222;"
       : "#222222 transparent transparent"};
   border-width: ${({ isOpen }) => (isOpen ? "0 5px 5px" : "5px 5px 0;")};
   border-style: solid;
-  content: "";
+  content: " ";
   display: block;
   height: 0;
   margin-top: -ceil(2.5);
@@ -54,7 +54,6 @@ const DropdownArrow = styled.div<{ isOpen: boolean }>`
   width: 0;
 `;
 
-// ドロップメニュー
 const DropdownMenu = styled.div`
   background-color: #ffffff;
   border: ${({ theme }) => theme.colors.border};
@@ -71,7 +70,6 @@ const DropdownMenu = styled.div`
   z-index: 1000;
 `;
 
-// ドロップメニューの選択肢
 const DropdownOption = styled.div`
   padding: 8px 12px 8px 12px;
   &:hover {
@@ -83,9 +81,6 @@ interface DropdownItemProps {
   item: DropdownItem;
 }
 
-/**
- * ドロップダウンの選択した要素
- */
 const DropdownItem = (props: DropdownItemProps) => {
   const { item } = props;
 
@@ -108,29 +103,24 @@ interface DropdownProps {
    * ドロップダウンの選択肢
    */
   options: DropdownItem[];
-
   /**
    * ドロップダウンの値
    */
   value?: string | number;
-
   /**
    * <input />のname属性
    */
   name?: string;
-
   /**
    * プレースホルダー
    */
   placeholder?: string;
-
   /**
    * バリデーションエラーフラグ
    */
   hasError?: boolean;
-
   /**
-   * 値が変化したときのイベントハンドラ
+   * 値が変化した時のイベントハンドラ
    */
   onChange?: (selected?: DropdownItem) => void;
 }
@@ -139,8 +129,8 @@ interface DropdownProps {
  * ドロップダウン
  */
 const Dropdown = (props: DropdownProps) => {
-  const { onChange, name, options, hasError } = props;
-  const initialItem = options.find((i) => i.value === props.value);
+  const { onChange, name, value, options, hasError } = props;
+  const initialItem = options.find((i) => i.value === value);
   const [isOpen, setIsOpenValue] = useState(false);
   const [selectedItem, setSelectedItem] = useState(initialItem);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -163,13 +153,11 @@ const Dropdown = (props: DropdownProps) => {
     [dropdownRef],
   );
 
-  // マウスダウンした時にドロップダウンを開く
   const handleMouseDown = (e: React.SyntheticEvent) => {
     setIsOpenValue((isOpen) => !isOpen);
     e.stopPropagation();
   };
 
-  // ドロップダウンから選択した時
   const handleSelectValue = (
     e: React.FormEvent<HTMLDivElement>,
     item: DropdownItem,
@@ -182,7 +170,7 @@ const Dropdown = (props: DropdownProps) => {
   };
 
   useEffect(() => {
-    // 画面外のクリックとタッチをイベント設定
+    // 画面外のクリックとタッチをイベントを設定
     document.addEventListener("click", handleDocumentClick, false);
     document.addEventListener("touchend", handleDocumentClick, false);
 
@@ -200,13 +188,14 @@ const Dropdown = (props: DropdownProps) => {
         hasError={hasError}
         onMouseDown={handleMouseDown}
         onTouchEnd={handleMouseDown}
+        data-testid="dropdown-control"
       >
         {selectedItem && (
           <DropdownValue>
             <DropdownItem item={selectedItem} />
           </DropdownValue>
         )}
-        {/* 何も選択されていないときはプレースホルダーを表示 */}
+        {/* 何も選択されてない時はプレースホルダーを表示 */}
         {!selectedItem && (
           <DropdownPlaceholder>{props?.placeholder}</DropdownPlaceholder>
         )}
@@ -227,6 +216,7 @@ const Dropdown = (props: DropdownProps) => {
               key={idx}
               onMouseDown={(e) => handleSelectValue(e, item)}
               onClick={(e) => handleSelectValue(e, item)}
+              data-testid="dropdown-option"
             >
               <DropdownItem item={item} />
             </DropdownOption>
