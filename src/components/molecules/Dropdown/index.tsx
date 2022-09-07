@@ -90,8 +90,8 @@ const DropdownItem = (props: DropdownItemProps) => {
   const { item } = props;
 
   return (
-    <Flex alignItems='center'>
-      <Text margin={0} variant='small'>
+    <Flex alignItems="center">
+      <Text margin={0} variant="small">
         {item.label ?? item.value}
       </Text>
     </Flex>
@@ -160,7 +160,7 @@ const Dropdown = (props: DropdownProps) => {
 
       setIsOpenValue(false);
     },
-    [dropdownRef]
+    [dropdownRef],
   );
 
   // マウスダウンした時にドロップダウンを開く
@@ -172,7 +172,7 @@ const Dropdown = (props: DropdownProps) => {
   // ドロップダウンから選択した時
   const handleSelectValue = (
     e: React.FormEvent<HTMLDivElement>,
-    item: DropdownItem
+    item: DropdownItem,
   ) => {
     e.stopPropagation();
 
@@ -212,7 +212,7 @@ const Dropdown = (props: DropdownProps) => {
         )}
         {/* ダミーinput */}
         <input
-          type='hidden'
+          type="hidden"
           name={name}
           value={selectedItem?.value ?? ""}
           onChange={() => onChange && onChange(selectedItem)}
