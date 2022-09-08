@@ -121,7 +121,7 @@ const Button = styled.button<ButtonProps>`
               variants[variant].pseudoClass.hover.backgroundColor,
               theme
             )}
-          }`.replaceAll("\n", "")
+          }`.replace("\n", "")
         );
       !pseudoClass &&
         styles.push(
@@ -131,7 +131,7 @@ const Button = styled.button<ButtonProps>`
               variants[variant].pseudoClass.disabled.backgroundColor,
               theme
             )}
-          }`.replaceAll("\n", "")
+          }`.replace("\n", "")
         );
       return styles.join("\n");
     }

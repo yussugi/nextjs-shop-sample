@@ -50,7 +50,7 @@ const HomePage: NextPage<HomePageProps> = ({
         >
           <Box width="100%">
             <Text as="h1" marginBottom={0} color="white" variant="extraLarge">
-              Gihyo C2Cで
+              <b>yussugi</b>で
             </Text>
             <Text as="h1" marginTop={0} color="white" variant="extraLarge">
               お気に入りのアイテムを見つけよう
@@ -58,14 +58,13 @@ const HomePage: NextPage<HomePageProps> = ({
           </Box>
           <Box width="100%">
             <Text as="p" color="white" variant="mediumLarge">
-              Gihyo
-              C2Cは実践的なNext.jsアプリケーション開発で使われるデモアプリです。モックサーバを使用しています。
+              yussugiは実践的なNext.jsアプリケーション開発で使われるデモアプリです。モックサーバを使用しています。
               ソースコードは
               <Text
                 as="a"
                 style={{ textDecoration: "underline" }}
                 target="_blank"
-                href="https://github.com/gihyo-book/ts-nextbook-app"
+                href="https://github.com/yussugi/nextjs-shop-sample"
                 variant="mediumLarge"
                 color="white"
               >
