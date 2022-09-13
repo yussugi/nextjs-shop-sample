@@ -5,12 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "export": "next export",
     "start": "next start",
     "lint": "next lint --dir src",
     "format": "next lint --fix --dir src",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
+    "export": "next export",
+    "export-optimize-images": "next-export-optimize-images",
     "test": "jest"
   },
   "dependencies": {
@@ -19,6 +20,7 @@
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.3",
     "next": "12.2.5",
+    "next-export-optimize-images": "^1.7.0",
     "react": "18.2.0",
     "react-content-loader": "^6.2.0",
     "react-dom": "18.2.0",

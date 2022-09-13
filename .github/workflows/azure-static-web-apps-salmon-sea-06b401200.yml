@@ -27,7 +27,7 @@ jobs:
         run: npm i
 
       - name: Build Next.js app
-        run: npm run build && npm run export
+        run: npm run build && npm run export && npm run export-optimize-images
 
       - name: Build And Deploy
         id: builddeploy
