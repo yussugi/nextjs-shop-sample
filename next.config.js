@@ -1,5 +1,4 @@
 /** @type {import('next').NextConfig} */
-/** @type {import('next-export-optimize-images').Config} */
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
