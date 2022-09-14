@@ -3,9 +3,6 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   trailingSlash: true,
-  images: {
-    unoptimized: true,
-  },
   compiler: (() => {
     let compilerConfig = {
       // styledComponentsの有効化

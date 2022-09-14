@@ -26,12 +26,17 @@ jobs:
           npm install
           npm run build --if-present
 #          npm run test --if-present
+      - name: delete node_modules dir
+        run: rm -rf node_modules
+
+      - name: Zip all files for upload between job
+        run: zip --symlinks -r next.zip ./*
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: next-app
-          path: ./.next
+          path: next.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -53,4 +58,7 @@ jobs:
           app-name: 'next-shop-sample20220914'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0B0A148802D040509878A049560DA2B1 }}
-          package: .
+          package: next.zip
+
+      - name: Delete zip file
+        run: rm next.zip
