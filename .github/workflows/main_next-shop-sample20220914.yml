@@ -26,6 +26,7 @@ jobs:
           npm install
           npm run build --if-present
 #          npm run test --if-present
+
       - name: delete node_modules dir
         run: rm -rf node_modules
 
@@ -50,9 +51,11 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: next-app
-      
+
       - name: npm install
-        run: npm install
+        run: |
+          npm install
+          npm run build --if-present
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
