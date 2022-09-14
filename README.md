@@ -3,6 +3,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Create Project
 
 Use following command (using npm)
+
 ```bash
 npx create-next-app@latest --ts nextjs-shop-sample --use-npm
 ```
@@ -16,7 +17,6 @@ npm run dev
 # or
 yarn dev
 ```
-
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
@@ -57,6 +57,7 @@ npm run storybook
 ```
 
 If following error occurs, fix `.storybook/main.js`
+
 ```bash
 Cannot find module ~~~
 ```
@@ -101,6 +102,7 @@ Fix `package.json` file.
 `"lint": "next lint --dir src"`
 
 Use Lint, following command.
+
 ```bash
 npm run lint
 ```
@@ -110,6 +112,7 @@ Fix `package.json` file.
 `"format": "next lint --fix --dir src"`
 
 Use Format, following command.
+
 ```bash
 npm run format
 ```
@@ -140,6 +143,28 @@ npm install @mui/material \
 @mui/icons-material \
 @emotion/react \
 @emotion/styled
+```
+
+---
+
+## Docker
+
+### Build Docker Image
+
+```bash
+docker image build -t `image-name`:`version` .
+```
+
+### Running Docker
+
+```bash
+docker container run -d -p 3000:3000 `nextjs-shop-sample:v0.1`
+```
+
+### Deploy Docker Image on Cloud
+
+```bash
+# Azure App Service
 ```
 
 ---

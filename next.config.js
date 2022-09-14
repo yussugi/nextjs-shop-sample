@@ -3,6 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   trailingSlash: true,
+  output: 'standalone',
   compiler: (() => {
     let compilerConfig = {
       // styledComponentsの有効化
