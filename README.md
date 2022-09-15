@@ -155,7 +155,7 @@ npm install @mui/material \
 docker image build -t `image-name`:`version` .
 ```
 
-### Running Docker
+### Running Docker (on local env)
 
 ```bash
 docker container run -d -p 3000:3000 `nextjs-shop-sample:v0.1`
@@ -163,9 +163,17 @@ docker container run -d -p 3000:3000 `nextjs-shop-sample:v0.1`
 
 ### Deploy Docker Image on Cloud
 
+You want to deploy on Azure, reference this [web site](https://docs.microsoft.com/ja-jp/azure/container-instances/container-instances-github-action).
+
+_Notice_
+
+At first deploy on Azure, you may run following command. This is because the resource provider has not been assigned to Azure Container Service.
+
 ```bash
-# Azure App Service
+az provider register --namespace Microsoft."resource provider name"
 ```
+
+[Microsoft reference guide](https://docs.microsoft.com/ja-jp/azure/azure-resource-manager/troubleshooting/error-register-resource-provider?tabs=azure-cli)
 
 ---
 
@@ -175,9 +183,3 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
