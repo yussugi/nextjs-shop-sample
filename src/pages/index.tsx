@@ -73,7 +73,7 @@ const HomePage: NextPage<HomePageProps> = ({
           >
             <Box width="100%">
               <Text as="h1" marginBottom={0} color="white" variant="extraLarge">
-                <b>yussugi</b>で
+                <b>Uni Channel</b>で
               </Text>
               <Text as="h1" marginTop={0} color="white" variant="extraLarge">
                 お気に入りのアイテムを見つけよう
