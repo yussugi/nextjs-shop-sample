@@ -44,16 +44,16 @@ const HomePage: NextPage<HomePageProps> = ({
   return (
     <React.Fragment>
       <Head>
-        <title>yussugi EC site</title>
+        <title>Uni Channel EC site</title>
         <meta
           name="desciption"
-          content="yussugiは実践的なNext.jsアプリケーション開発で使われるデモアプリです。"
+          content="Uni Channelは実践的なNext.jsアプリケーション開発で使われるデモアプリです。"
         />
-        <meta property="og:site_name" content="yussugi EC site" />
-        <meta property="og:title" content="yussugiのトップページ" />
+        <meta property="og:site_name" content="Uni Channel EC site" />
+        <meta property="og:title" content="Uni Channelのトップページ" />
         <meta
           property="og:description"
-          content="yussugiは実践的なNext.jsアプリケーション開発で使われるデモアプリです。"
+          content="Uni Channelは実践的なNext.jsアプリケーション開発で使われるデモアプリです。"
         />
         <meta property="og:type" content="website" />
         <meta property="og:uel" content="http://localhost:3000" />
@@ -81,7 +81,8 @@ const HomePage: NextPage<HomePageProps> = ({
             </Box>
             <Box width="100%">
               <Text as="p" color="white" variant="mediumLarge">
-                yussugiは実践的なNext.jsアプリケーション開発で使われるデモアプリです。モックサーバを使用しています。
+                Uni
+                Channelは実践的なNext.jsアプリケーション開発で使われるデモアプリです。モックサーバを使用しています。
                 ソースコードは
                 <Text
                   as="a"
