@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: nextjssampleshop.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_3ce8ea40b4b349be910694eb7dd261d2 }}/nextjs-shop-sample:${{ github.sha }}
+        tags: nextjssampleshop.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_3ce8ea40b4b349be910694eb7dd261d2 }}/extjshopample:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
